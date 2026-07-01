@@ -17,6 +17,10 @@ function createDependencies() {
 function createApp(dependencies = createDependencies()) {
   return async function app(req, res) {
     try {
+      if (req.method === 'OPTIONS') {
+        return sendNoContent(res, 204, buildCorsHeaders())
+      }
+
       const url = new URL(req.url, 'http://localhost')
       const body = ['POST', 'PUT', 'PATCH'].includes(req.method) ? await readJson(req) : null
 
@@ -100,9 +104,23 @@ function readJson(req) {
 
 function sendJson(res, statusCode, payload) {
   res.writeHead(statusCode, {
+    ...buildCorsHeaders(),
     'Content-Type': 'application/json; charset=utf-8',
   })
   res.end(JSON.stringify(payload))
+}
+
+function sendNoContent(res, statusCode, headers) {
+  res.writeHead(statusCode, headers)
+  res.end()
+}
+
+function buildCorsHeaders() {
+  return {
+    'Access-Control-Allow-Origin': process.env.CORS_ORIGIN || '*',
+    'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+  }
 }
 
 module.exports = {

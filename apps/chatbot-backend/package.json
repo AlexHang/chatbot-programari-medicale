@@ -7,5 +7,8 @@
     "start": "node src/index.js",
     "test": "node --test"
   },
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
 }

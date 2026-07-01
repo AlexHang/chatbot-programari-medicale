@@ -35,6 +35,34 @@ npm --prefix apps/frontend run dev
 
 Frontend-ul foloseste implicit `http://localhost:3001` ca API. Se poate schimba prin `VITE_API_BASE_URL`.
 
+## Configurare .env
+
+Aplicatia accepta variabile din `.env` astfel:
+
+1. backend (`apps/chatbot-backend`):
+  - citeste `.env` din radacina repo-ului
+  - citeste si `apps/chatbot-backend/.env` (acesta are prioritate)
+2. frontend (`apps/frontend`):
+  - Vite citeste automat `apps/frontend/.env`
+  - doar variabilele prefixate cu `VITE_` sunt expuse in browser
+
+Poti porni rapid de la fisierele exemplu: `.env.example`, `apps/chatbot-backend/.env.example`, `apps/frontend/.env.example`.
+
+Exemple rapide:
+
+```env
+# apps/chatbot-backend/.env
+PORT=3001
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-4.1-mini
+CORS_ORIGIN=http://localhost:5173
+```
+
+```env
+# apps/frontend/.env
+VITE_API_BASE_URL=http://localhost:3001
+```
+
 ## Teste
 
 ```bash
