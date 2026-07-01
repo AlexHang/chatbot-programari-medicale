@@ -1,0 +1,153 @@
+:root {
+  color: #1f2937;
+  background: #f7f8fc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1.2rem;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  margin-top: 0.4rem;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero,
+.panel,
+.chat-shell {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+}
+
+.hero {
+  display: grid;
+  gap: 1rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.lead {
+  color: #475569;
+  max-width: 60rem;
+}
+
+.module-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.module-grid li,
+.record-card,
+.message {
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.module-grid span,
+.chat-header p,
+.message p,
+.panel p,
+.record-card span {
+  color: #475569;
+}
+
+.module-grid strong,
+.record-card strong,
+.message strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.chat-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.messages {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 220px;
+}
+
+.message.user {
+  background: #dbeafe;
+}
+
+.message.assistant {
+  background: #f8fafc;
+}
+
+.composer {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.error {
+  color: #b91c1c;
+  margin: 0;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "chatbot-backend",
+  "version": "1.0.0",
+  "description": "Romanian medical chatbot backend",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "type": "commonjs"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "chatbot-programari-medicale",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modular Romanian medical intake and scheduling chatbot",
+  "scripts": {
+    "test": "npm --prefix modules/scheduling test && npm --prefix apps/chatbot-backend test",
+    "build": "npm --prefix apps/frontend run build",
+    "start:backend": "npm --prefix apps/chatbot-backend start"
+  }
+}

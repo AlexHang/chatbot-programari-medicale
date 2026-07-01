@@ -1,0 +1,10 @@
+{
+  "name": "scheduling",
+  "version": "1.0.0",
+  "description": "Scheduling wrapper for local storage and calendar integrations",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "type": "commonjs"
+}

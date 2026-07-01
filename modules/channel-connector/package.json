@@ -1,0 +1,10 @@
+{
+  "name": "channel-connector",
+  "version": "1.0.0",
+  "description": "Connector layer for external communication channels",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node -e \"console.log('No standalone tests for channel connector')\""
+  },
+  "type": "commonjs"
+}
