@@ -151,6 +151,37 @@ class SchedulingService {
     appointment.googleCalendar = await this.googleCalendarAdapter.upsertAppointment(appointment)
     return appointment
   }
+
+  getAvailableSlots(date, specialty = null) {
+    // Standard office hours: 8:00 - 17:00, 30-minute slots
+    const slots = []
+    const dayStart = new Date(`${date}T08:00:00`)
+    const dayEnd = new Date(`${date}T17:00:00`)
+
+    // Get all appointments on this date
+    const dateAppointments = [...this.appointments.values()].filter((apt) => {
+      const aptDate = new Date(apt.startsAt).toISOString().split('T')[0]
+      return aptDate === date
+    })
+
+    // Generate 30-minute slots
+    for (let time = new Date(dayStart); time < dayEnd; time.setMinutes(time.getMinutes() + 30)) {
+      const timeStr = `${String(time.getHours()).padStart(2, '0')}:${String(time.getMinutes()).padStart(2, '0')}`
+
+      // Check if slot is booked
+      const isBooked = dateAppointments.some((apt) => {
+        const aptTime = new Date(apt.startsAt)
+        const aptTimeStr = `${String(aptTime.getHours()).padStart(2, '0')}:${String(aptTime.getMinutes()).padStart(2, '0')}`
+        return aptTimeStr === timeStr
+      })
+
+      if (!isBooked) {
+        slots.push(timeStr)
+      }
+    }
+
+    return slots
+  }
 }
 
 module.exports = {
